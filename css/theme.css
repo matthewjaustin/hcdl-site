@@ -15,10 +15,11 @@
   --hcdl-border: rgba(255, 255, 255, 0.08);
   --hcdl-text: #e6e6ea;
   --hcdl-text-dim: #9a9ba3;
-  --hcdl-accent: #22d3ee;
-  --hcdl-accent-2: #818cf8;
-  --hcdl-accent-grad: linear-gradient(90deg, var(--hcdl-accent-2), var(--hcdl-accent));
-  --hcdl-gold: #daa520; /* MFL's existing warning/free-agent color — left alone, not overridden */
+  --hcdl-accent: #ff5a1f;
+  --hcdl-accent-2: #ffb100;
+  --hcdl-accent-deep: #7a1a00;
+  --hcdl-accent-grad: linear-gradient(90deg, var(--hcdl-accent-deep), var(--hcdl-accent) 55%, var(--hcdl-accent-2));
+  --hcdl-gold: #daa520; /* MFL's own warning/free-agent color, distinct from --hcdl-accent-2 — left alone, not overridden */
   --hcdl-radius: 10px;
 }
 
@@ -27,8 +28,8 @@
 body {
   background: var(--hcdl-bg) !important;
   background-image:
-    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(129, 140, 248, 0.10), transparent 60%),
-    radial-gradient(ellipse 900px 500px at 85% 0%, rgba(34, 211, 238, 0.08), transparent 60%) !important;
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(255, 90, 31, 0.12), transparent 60%),
+    radial-gradient(ellipse 900px 500px at 85% 0%, rgba(255, 177, 0, 0.08), transparent 60%) !important;
   background-repeat: no-repeat !important;
   background-attachment: fixed !important;
   color: var(--hcdl-text);
@@ -88,7 +89,7 @@ a:hover {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--hcdl-border) !important;
-  box-shadow: 0 1px 0 rgba(34, 211, 238, 0.15) !important;
+  box-shadow: 0 1px 0 rgba(255, 90, 31, 0.2) !important;
 }
 .myfantasyleague_menu ul,
 .myfantasyleague_menu ul li ul,
@@ -105,7 +106,7 @@ a:hover {
   color: #fff !important;
 }
 .myfantasyleague_menu li:hover > a {
-  background-color: rgba(129, 140, 248, 0.12) !important;
+  background-color: rgba(255, 90, 31, 0.14) !important;
   background-image: none !important;
   box-shadow: inset 0 -2px 0 var(--hcdl-accent) !important;
 }
@@ -149,7 +150,7 @@ a:hover {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .homepagecolumn .homepagemodule:hover {
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(34, 211, 238, 0.15) !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 177, 0, 0.18) !important;
 }
 
 caption,
@@ -169,7 +170,7 @@ th {
   background: #101116 !important;
   color: var(--hcdl-text) !important;
   letter-spacing: 0.06em;
-  border-bottom: 2px solid rgba(34, 211, 238, 0.35) !important;
+  border-bottom: 2px solid rgba(255, 90, 31, 0.4) !important;
 }
 th a:link, th a:active, th a:visited {
   color: var(--hcdl-text) !important;
@@ -185,7 +186,7 @@ th a:link, th a:active, th a:visited {
 }
 .oddtablerow:hover,
 .eventablerow:hover {
-  background: rgba(129, 140, 248, 0.08) !important;
+  background: rgba(255, 90, 31, 0.08) !important;
 }
 .oddtablerow a:link, .oddtablerow a:active, .oddtablerow a:visited,
 .eventablerow a:link, .eventablerow a:active, .eventablerow a:visited {
@@ -218,7 +219,7 @@ th a:link, th a:active, th a:visited {
 input[type="button"],
 input[type="submit"] {
   background: var(--hcdl-accent-grad) !important;
-  color: #06070a !important;
+  color: #1a0900 !important;
   font-weight: 700;
   border: 0 !important;
   border-radius: 999px;
@@ -231,7 +232,7 @@ input[type="submit"]:hover {
   filter: brightness(1.1);
   transform: translateY(-1px);
   background: var(--hcdl-accent-grad) !important;
-  color: #06070a !important;
+  color: #1a0900 !important;
 }
 
 .pagebody input[type="text"],
