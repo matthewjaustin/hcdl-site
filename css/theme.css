@@ -126,14 +126,8 @@ a:hover {
   border-radius: var(--hcdl-radius);
   margin-bottom: 16px;
 }
-/* the O=18 link has no icon in the source HTML (unclosed/never finished
-   anchor) — everything else empty is genuinely decorative cruft, hide it,
-   but let the Trades slot through so our own icon can render in it */
-#nav_buttons a:empty:not([href*="O=18"]) {
+#nav_buttons a:empty {
   display: none !important;
-}
-#nav_buttons a[href*="O=18"] {
-  display: inline-flex !important;
 }
 
 #nav_buttons a {
@@ -205,8 +199,8 @@ a:hover {
 #nav_buttons a[href*="O=46"]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/add-player.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/add-player.svg'); }
 #nav_buttons a[href*="O=46"]::after { content: 'Add Player'; }
 
-#nav_buttons a[href*="O=18"]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/trades.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/trades.svg'); }
-#nav_buttons a[href*="O=18"]::after { content: 'Trades'; }
+#nav_buttons a[href*="O=05&F="]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/trades.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/trades.svg'); }
+#nav_buttons a[href*="O=05&F="]::after { content: 'Trades'; }
 
 #nav_buttons a[href*="/standings?"]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/standings.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/standings.svg'); }
 #nav_buttons a[href*="/standings?"]::after { content: 'Standings'; }
