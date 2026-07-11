@@ -111,6 +111,43 @@ a:hover {
   box-shadow: inset 0 -2px 0 var(--hcdl-accent) !important;
 }
 
+/* ---------- quick-link icon bar (#nav_buttons, mfladdons.com PNG icons) ---------- */
+
+#nav_buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px !important;
+  background: var(--hcdl-bg-card);
+  border: 1px solid var(--hcdl-border);
+  border-radius: var(--hcdl-radius);
+  margin-bottom: 16px;
+}
+#nav_buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: var(--hcdl-bg-raised);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+#nav_buttons a:hover {
+  background: rgba(255, 90, 31, 0.14);
+  border-color: rgba(255, 90, 31, 0.4);
+  transform: translateY(-2px);
+}
+#nav_buttons img {
+  opacity: 0.88;
+  filter: brightness(1.15);
+  transition: opacity 0.15s ease, filter 0.15s ease;
+}
+#nav_buttons a:hover img {
+  opacity: 1;
+  filter: brightness(1.2) drop-shadow(0 0 5px rgba(255, 177, 0, 0.55));
+}
+
 /* ---------- tab menu (home page tabs) ---------- */
 
 .myfantasyleague_tabmenu {
