@@ -191,8 +191,10 @@ a:hover {
 #nav_buttons a[href*="/home/43736"]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/home.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/home.svg'); }
 #nav_buttons a[href*="/home/43736"]::after { content: 'Home'; }
 
-#nav_buttons a[href*="O=29"]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/message-board.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/message-board.svg'); }
-#nav_buttons a[href*="O=29"]::after { content: 'Message Board'; }
+/* Message Board: nobody uses it, drop it from the bar entirely */
+#nav_buttons a[href*="O=29"] {
+  display: none !important;
+}
 
 #nav_buttons a[href*="O=07&F="]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/my-roster.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/my-roster.svg'); }
 #nav_buttons a[href*="O=07&F="]::after { content: 'My Roster'; }
