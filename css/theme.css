@@ -126,15 +126,24 @@ a:hover {
   border-radius: var(--hcdl-radius);
   margin-bottom: 16px;
 }
-#nav_buttons a:empty {
+/* the O=18 link has no icon in the source HTML (unclosed/never finished
+   anchor) — everything else empty is genuinely decorative cruft, hide it,
+   but let the Trades slot through so our own icon can render in it */
+#nav_buttons a:empty:not([href*="O=18"]) {
   display: none !important;
 }
+#nav_buttons a[href*="O=18"] {
+  display: inline-flex !important;
+}
+
 #nav_buttons a {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   flex: 1 1 0;
-  padding: 8px 12px;
+  padding: 10px 8px;
   border-radius: 8px;
   border: 1px solid transparent;
   background: var(--hcdl-bg-raised);
@@ -145,15 +154,63 @@ a:hover {
   border-color: rgba(255, 90, 31, 0.4);
   transform: translateY(-2px);
 }
+
+/* replace MFL's stock grey PNGs with our own icon set, applied as a CSS
+   mask so hover color comes from the theme instead of a second image */
 #nav_buttons img {
-  opacity: 0.88;
-  filter: brightness(1.15);
-  transition: opacity 0.15s ease, filter 0.15s ease;
+  display: none !important;
 }
-#nav_buttons a:hover img {
-  opacity: 1;
-  filter: brightness(1.2) drop-shadow(0 0 5px rgba(255, 177, 0, 0.55));
+#nav_buttons a::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--hcdl-text-dim);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  transition: background-color 0.15s ease;
 }
+#nav_buttons a:hover::before {
+  background-color: var(--hcdl-accent-2);
+}
+#nav_buttons a::after {
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--hcdl-text-dim);
+  text-align: center;
+}
+#nav_buttons a:hover::after {
+  color: #fff;
+}
+
+#nav_buttons a[href*="/home/43736"]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/home.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/home.svg'); }
+#nav_buttons a[href*="/home/43736"]::after { content: 'Home'; }
+
+#nav_buttons a[href*="O=29"]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/message-board.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/message-board.svg'); }
+#nav_buttons a[href*="O=29"]::after { content: 'Message Board'; }
+
+#nav_buttons a[href*="O=07&F="]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/my-roster.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/my-roster.svg'); }
+#nav_buttons a[href*="O=07&F="]::after { content: 'My Roster'; }
+
+#nav_buttons a[href*="O=02"]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/submit-lineup.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/submit-lineup.svg'); }
+#nav_buttons a[href*="O=02"]::after { content: 'Submit Lineup'; }
+
+#nav_buttons a[href*="O=46"]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/add-player.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/add-player.svg'); }
+#nav_buttons a[href*="O=46"]::after { content: 'Add Player'; }
+
+#nav_buttons a[href*="O=18"]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/trades.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/trades.svg'); }
+#nav_buttons a[href*="O=18"]::after { content: 'Trades'; }
+
+#nav_buttons a[href*="/standings?"]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/standings.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/standings.svg'); }
+#nav_buttons a[href*="/standings?"]::after { content: 'Standings'; }
+
+#nav_buttons a[href*="live_scoring_summary"]::before { -webkit-mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/live-scoring.svg'); mask-image: url('https://matthewjaustin.github.io/hcdl-site/icons/live-scoring.svg'); }
+#nav_buttons a[href*="live_scoring_summary"]::after { content: 'Live Scoring'; }
 
 /* ---------- tab menu (home page tabs) ---------- */
 
