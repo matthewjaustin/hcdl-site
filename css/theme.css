@@ -1,0 +1,274 @@
+/*
+  HCDL custom theme — overlay for MyFantasyLeague's "Onyx" skin.
+  Loaded via Setup > Appearance Setup > Images & Other URLs (Custom CSS URL),
+  *after* MFLBaseCSS.css and skins17/Onyx/Onyx.css, so these rules win the cascade.
+  Selectors below are the real classes/IDs pulled from live league pages —
+  don't rename without re-checking the source, MFL doesn't publish these as an API.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap');
+
+:root {
+  --hcdl-bg: #08090b;
+  --hcdl-bg-raised: #131418;
+  --hcdl-bg-card: #16171c;
+  --hcdl-border: rgba(255, 255, 255, 0.08);
+  --hcdl-text: #e6e6ea;
+  --hcdl-text-dim: #9a9ba3;
+  --hcdl-accent: #22d3ee;
+  --hcdl-accent-2: #818cf8;
+  --hcdl-accent-grad: linear-gradient(90deg, var(--hcdl-accent-2), var(--hcdl-accent));
+  --hcdl-gold: #daa520; /* MFL's existing warning/free-agent color — left alone, not overridden */
+  --hcdl-radius: 10px;
+}
+
+/* ---------- base page ---------- */
+
+body {
+  background: var(--hcdl-bg) !important;
+  background-image:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(129, 140, 248, 0.10), transparent 60%),
+    radial-gradient(ellipse 900px 500px at 85% 0%, rgba(34, 211, 238, 0.08), transparent 60%) !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  color: var(--hcdl-text);
+}
+
+.pagebody,
+.pagebody a {
+  background: none;
+}
+
+a:link, a:active, a:visited {
+  color: var(--hcdl-accent);
+  text-decoration: none;
+}
+a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* ---------- header / title / footer ---------- */
+
+.pageheader {
+  padding: 18px 0 8px;
+}
+
+.pagetitle h1 {
+  font-family: 'Space Grotesk', 'Roboto Condensed', sans-serif;
+  letter-spacing: 0.04em;
+  background: var(--hcdl-accent-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
+
+.welcome {
+  color: var(--hcdl-text-dim);
+}
+
+.pagefooter {
+  color: var(--hcdl-text-dim);
+  border-top: 1px solid var(--hcdl-border);
+  margin-top: 24px !important;
+  padding-top: 14px !important;
+}
+.pagefooter a:link, .pagefooter a:active, .pagefooter a:visited {
+  color: var(--hcdl-text-dim);
+}
+.pagefooter a:hover {
+  color: var(--hcdl-accent);
+}
+
+/* ---------- top nav ---------- */
+
+.myfantasyleague_menu {
+  background: rgba(10, 10, 13, 0.85) !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hcdl-border) !important;
+  box-shadow: 0 1px 0 rgba(34, 211, 238, 0.15) !important;
+}
+.myfantasyleague_menu ul,
+.myfantasyleague_menu ul li ul,
+.myfantasyleague_menu ul ul li {
+  background: #101116 !important;
+}
+.myfantasyleague_menu ul li a,
+.myfantasyleague_menu ul li:hover ul li a {
+  color: var(--hcdl-text-dim) !important;
+  transition: color 0.15s ease;
+}
+.myfantasyleague_menu ul li:hover a,
+.myfantasyleague_menu ul li ul li:hover a {
+  color: #fff !important;
+}
+.myfantasyleague_menu li:hover > a {
+  background-color: rgba(129, 140, 248, 0.12) !important;
+  background-image: none !important;
+  box-shadow: inset 0 -2px 0 var(--hcdl-accent) !important;
+}
+
+/* ---------- tab menu (home page tabs) ---------- */
+
+.myfantasyleague_tabmenu {
+  background: var(--hcdl-bg-raised) !important;
+  border: 1px solid var(--hcdl-border) !important;
+  border-radius: var(--hcdl-radius);
+  box-shadow: none !important;
+}
+.myfantasyleague_tabmenu #homepagetabs li {
+  border-color: var(--hcdl-border) !important;
+}
+.myfantasyleague_tabmenu #homepagetabs li a {
+  color: var(--hcdl-text-dim) !important;
+  transition: color 0.15s ease;
+}
+.myfantasyleague_tabmenu #homepagetabs li:hover a,
+.myfantasyleague_tabmenu #homepagetabs li.selected a {
+  color: #fff !important;
+}
+.myfantasyleague_tabmenu #homepagetabs li.selected {
+  box-shadow: inset 0 -3px 0 var(--hcdl-accent);
+}
+
+/* ---------- cards: reports, modules, brackets ---------- */
+
+.report,
+.playoffbracket,
+#monthly_calendar,
+.homepagemodule {
+  background: var(--hcdl-bg-card) !important;
+  border: 1px solid var(--hcdl-border);
+  border-radius: var(--hcdl-radius);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+}
+
+.homepagecolumn .homepagemodule {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.homepagecolumn .homepagemodule:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(34, 211, 238, 0.15) !important;
+}
+
+caption,
+.homepagemodule caption,
+.homepagecolumn .homepagemodule caption {
+  background: linear-gradient(180deg, #1a1b21, #131418) !important;
+  border: 1px solid var(--hcdl-border) !important;
+  border-bottom: 2px solid var(--hcdl-accent) !important;
+  color: var(--hcdl-text) !important;
+  letter-spacing: 0.08em;
+  border-radius: var(--hcdl-radius) var(--hcdl-radius) 0 0 !important;
+}
+
+/* ---------- tables ---------- */
+
+th {
+  background: #101116 !important;
+  color: var(--hcdl-text) !important;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid rgba(34, 211, 238, 0.35) !important;
+}
+th a:link, th a:active, th a:visited {
+  color: var(--hcdl-text) !important;
+}
+
+.oddtablerow {
+  background: #101116 !important;
+  color: var(--hcdl-text-dim) !important;
+}
+.eventablerow {
+  background: #16171c !important;
+  color: var(--hcdl-text-dim) !important;
+}
+.oddtablerow:hover,
+.eventablerow:hover {
+  background: rgba(129, 140, 248, 0.08) !important;
+}
+.oddtablerow a:link, .oddtablerow a:active, .oddtablerow a:visited,
+.eventablerow a:link, .eventablerow a:active, .eventablerow a:visited {
+  color: var(--hcdl-text-dim);
+}
+.oddtablerow a:hover, .eventablerow a:hover {
+  color: #fff;
+}
+
+/* free-agent / warning colors are intentionally left untouched (var(--hcdl-gold) documents the existing value) */
+
+/* ---------- franchise branding ---------- */
+
+.franchiselogo {
+  border: 2px solid var(--hcdl-border);
+  outline: none;
+  border-radius: 6px;
+  transition: transform 0.15s ease;
+}
+.franchiselogo:hover {
+  transform: scale(1.03);
+}
+
+.plaqueframe {
+  border-radius: var(--hcdl-radius);
+}
+
+/* ---------- buttons / forms ---------- */
+
+input[type="button"],
+input[type="submit"] {
+  background: var(--hcdl-accent-grad) !important;
+  color: #06070a !important;
+  font-weight: 700;
+  border: 0 !important;
+  border-radius: 999px;
+  padding: 6px 16px;
+  letter-spacing: 0.03em;
+  transition: filter 0.15s ease, transform 0.1s ease;
+}
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  background: var(--hcdl-accent-grad) !important;
+  color: #06070a !important;
+}
+
+.pagebody input[type="text"],
+.pagebody input[type="password"] {
+  background: var(--hcdl-bg-raised);
+  color: var(--hcdl-text);
+  border: 1px solid var(--hcdl-border);
+  border-radius: 6px;
+}
+
+/* ---------- scrollbar ---------- */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--hcdl-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--hcdl-accent-2);
+  border-radius: 6px;
+}
+
+/* ---------- motion preference ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .homepagecolumn .homepagemodule,
+  .franchiselogo,
+  input[type="button"],
+  input[type="submit"] {
+    transition: none !important;
+  }
+  .homepagecolumn .homepagemodule:hover,
+  .franchiselogo:hover,
+  input[type="button"]:hover,
+  input[type="submit"]:hover {
+    transform: none !important;
+  }
+}
