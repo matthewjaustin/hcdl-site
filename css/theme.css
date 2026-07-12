@@ -100,7 +100,7 @@ a:hover {
 
 /* defending champion callout — update the name here each season */
 .pagetitle::after {
-  content: 'Defending Champions: Gun Control This \1F3C6';
+  content: 'Defending Champion: Gun Control This \1F3C6';
   display: block;
   text-align: center;
   font-family: 'Roboto Condensed', sans-serif;
