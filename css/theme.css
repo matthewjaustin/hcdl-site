@@ -64,30 +64,11 @@ a:hover {
   padding: 10px 14px;
 }
 
-/* table-layout:fixed treats row1's declared widths as literal only when
-   they sum to (roughly) the table's own width — use percentages summing
-   to 100% so the split is predictable at any viewport width, instead of
-   pixel values that get silently rescaled proportionally. */
-.brandlogo {
-  display: table-cell !important;
-  vertical-align: middle !important;
-  width: 6% !important;
-}
-.brandlogo img {
-  display: none !important;
-}
-.brandlogo a {
-  display: inline-block;
-  width: 52px;
-  height: 52px;
-  background-image: url('https://matthewjaustin.github.io/hcdl-site/logo/hcdl-skull.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
+/* logo removed for now — leave .brandlogo at the Onyx skin's own
+   display:none default. Give its share of the row to the title. */
 
 .bannerimage {
-  width: 74% !important;
+  width: 80% !important;
 }
 
 .pagetitle {
