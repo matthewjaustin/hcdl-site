@@ -51,15 +51,30 @@ a:hover {
 
 /* ---------- header / title / footer ---------- */
 
+/* .pageheader is a table with brandlogo/welcome as rowspan=3 cells in row1
+   and pagetitle alone in row2 — that leaves pagetitle boxed into a narrow
+   middle column, so text-align:center only centers within that cramped
+   slot. Turn the table into a grid (display:contents on the rows exposes
+   each td as a direct grid item) so logo/title/welcome can be positioned
+   independent of the source table's row/column math. */
 .pageheader {
-  padding: 12px 0 6px;
+  display: grid !important;
+  width: 100% !important;
+  grid-template-columns: 52px 1fr auto;
+  align-items: center;
+  column-gap: 12px;
+  padding: 10px 14px;
+}
+.pageheader tr {
+  display: contents;
 }
 
 /* MFL's own skin hides this slot (.brandlogo{display:none}) — bring it
    back as a compact logo badge instead of MFL's generic 80x80 mark */
 .brandlogo {
-  display: table-cell !important;
-  vertical-align: middle !important;
+  display: block !important;
+  grid-column: 1;
+  grid-row: 1 / span 2;
   width: 52px !important;
 }
 .brandlogo img {
@@ -75,22 +90,43 @@ a:hover {
   background-size: contain;
 }
 
+.bannerimage {
+  display: none !important;
+}
+
+.pagetitle {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: center;
+}
+
+.welcome {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
 .pagetitle h1 {
   font-family: 'Space Grotesk', 'Roboto Condensed', sans-serif;
   font-size: 22px !important;
   letter-spacing: 0.04em;
   margin-top: 0 !important;
+  text-align: center;
   background: var(--hcdl-accent-grad);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   text-shadow: none;
 }
+/* fold the season year into the league name itself */
+.pagetitle h1::before {
+  content: '2026 ';
+}
 
-/* season + defending champion callout — update the text here each year */
+/* defending champion callout — update the name here each season */
 .pagetitle::after {
-  content: '2026 Season  \2022  Defending Champions: Gun Control This \1F3C6';
+  content: 'Defending Champions: Gun Control This \1F3C6';
   display: block;
+  text-align: center;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 11px;
   letter-spacing: 0.05em;
