@@ -52,30 +52,26 @@ a:hover {
 /* ---------- header / title / footer ---------- */
 
 /* .pageheader is a table with brandlogo/welcome as rowspan=3 cells in row1
-   and pagetitle alone in row2 — that leaves pagetitle boxed into a narrow
-   middle column, so text-align:center only centers within that cramped
-   slot. Turn the table into a grid (display:contents on the rows exposes
-   each td as a direct grid item) so logo/title/welcome can be positioned
-   independent of the source table's row/column math. */
+   and pagetitle alone in row2 — in the default "auto" table layout the
+   browser sizes columns from content, which squeezed pagetitle's column
+   down to near-nothing (text-align:center then only centers within that
+   sliver). table-layout:fixed makes column widths come ONLY from row1's
+   declared widths, independent of how long any cell's content is, so
+   pagetitle reliably gets the real middle share of the header width. */
 .pageheader {
-  display: grid !important;
   width: 100% !important;
-  grid-template-columns: 52px 1fr auto;
-  align-items: center;
-  column-gap: 12px;
+  table-layout: fixed !important;
   padding: 10px 14px;
 }
-.pageheader tr {
-  display: contents;
-}
 
-/* MFL's own skin hides this slot (.brandlogo{display:none}) — bring it
-   back as a compact logo badge instead of MFL's generic 80x80 mark */
+/* table-layout:fixed treats row1's declared widths as literal only when
+   they sum to (roughly) the table's own width — use percentages summing
+   to 100% so the split is predictable at any viewport width, instead of
+   pixel values that get silently rescaled proportionally. */
 .brandlogo {
-  display: block !important;
-  grid-column: 1;
-  grid-row: 1 / span 2;
-  width: 52px !important;
+  display: table-cell !important;
+  vertical-align: middle !important;
+  width: 6% !important;
 }
 .brandlogo img {
   display: none !important;
@@ -91,18 +87,17 @@ a:hover {
 }
 
 .bannerimage {
-  display: none !important;
+  width: 74% !important;
 }
 
 .pagetitle {
-  grid-column: 2;
-  grid-row: 1;
   text-align: center;
 }
 
 .welcome {
-  grid-column: 3;
-  grid-row: 1 / span 2;
+  width: 20% !important;
+  text-align: right;
+  white-space: normal !important;
 }
 
 .pagetitle h1 {
